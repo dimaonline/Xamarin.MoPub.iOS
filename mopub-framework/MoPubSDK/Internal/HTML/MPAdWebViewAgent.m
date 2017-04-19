@@ -119,7 +119,7 @@
         [self.view removeFromSuperview];
         self.view = nil;
     }
-    self.view = [[MPWebView alloc] initWithFrame:self.frame forceUIWebView:self.configuration.forceUIWebView];
+    self.view = [[MPWebView alloc] initWithFrame:self.frame];
     self.view.delegate = self;
     [self.view addGestureRecognizer:self.userInteractionRecognizer];
 
@@ -217,6 +217,13 @@
         [self performActionForMoPubSpecificURL:URL];
         return NO;
     } else if ([self shouldIntercept:URL navigationType:navigationType]) {
+
+        // Disable intercept without user interaction
+        if (!self.userInteractedWithWebView) {
+            MPLogInfo(@"Redirect without user interaction detected");
+            return NO;
+        }
+
         [self interceptURL:URL];
         return NO;
     } else {

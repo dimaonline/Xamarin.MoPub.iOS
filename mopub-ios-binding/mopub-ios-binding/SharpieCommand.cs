@@ -1,0 +1,1 @@
+﻿//sharpie bind -output Binding -sdk iphoneos10.3 MoPubSDK/MoPub-Bridging-Header.h

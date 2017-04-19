@@ -45,5 +45,6 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
   <ItemGroup>
     <Compile Include="MoPub.framework.linkwith.cs" />
+    <Compile Include="SharpieCommand.cs" />
   </ItemGroup>
 </Project>
